@@ -30,22 +30,22 @@ class _HomeState extends State<Home> {
       listener: (context, state) {
         if (state is HomeNavigateToCartPageActionState) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Cart()));
+              context, MaterialPageRoute(builder: (context) => const Cart()));
         } else if (state is HomeNavigateToWishlistPageActionState) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Wishlist()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Wishlist()));
         } else if (state is HomeProductItemCartedActionState) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Item Carted')));
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item added to Cart')));
         } else if (state is HomeProductItemWishlistedActionState) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Item Wishlisted')));
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Item added to Wishlist')));
         }
       },
       builder: (context, state) {
         switch (state.runtimeType) {
           case HomeLoadingState:
-            return Scaffold(
+            return const Scaffold(
                 body: Center(
               child: CircularProgressIndicator(),
             ));
@@ -54,18 +54,18 @@ class _HomeState extends State<Home> {
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.teal,
-                title: Text('Grocery store'),
+                title: const Text('Grocery store'),
                 actions: [
                   IconButton(
                       onPressed: () {
                         homeBloc.add(HomeWishlistButtonNavigateEvent());
                       },
-                      icon: Icon(Icons.favorite_border)),
+                      icon: const Icon(Icons.favorite_border)),
                   IconButton(
                       onPressed: () {
                         homeBloc.add(HomeCartButtonNavigateEvent());
                       },
-                      icon: Icon(Icons.shopping_bag_outlined)),
+                      icon: const Icon(Icons.shopping_bag_outlined)),
                 ],
               ),
               body: ListView.builder(
@@ -78,9 +78,9 @@ class _HomeState extends State<Home> {
             );
 
           case HomeErrorState:
-            return Scaffold(body: Center(child: Text('Error')));
+            return const Scaffold(body: Center(child: Text('Error')));
           default:
-            return SizedBox();
+            return const SizedBox();
         }
       },
     );

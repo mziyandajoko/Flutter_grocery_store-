@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:grocery_store/features/home/bloc/home_bloc.dart';
 import 'package:grocery_store/features/home/models/home_product_data_model.dart';
 
@@ -39,8 +36,9 @@ class ProductTileWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("\$" + productDataModel.price.toString(),
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text("\$${productDataModel.price}",
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold)),
               Row(
                 children: [
                   IconButton(
@@ -48,13 +46,13 @@ class ProductTileWidget extends StatelessWidget {
                         homeBloc.add(HomeProductWishlistButtonClickedEvent(
                             clickedProduct: productDataModel));
                       },
-                      icon: Icon(Icons.favorite_border)),
+                      icon: const Icon(Icons.favorite_border)),
                   IconButton(
                       onPressed: () {
                         homeBloc.add(HomeProductCartButtonClickedEvent(
                             clickedProduct: productDataModel));
                       },
-                      icon: Icon(Icons.shopping_bag_outlined)),
+                      icon: const Icon(Icons.shopping_bag_outlined)),
                 ],
               )
             ],

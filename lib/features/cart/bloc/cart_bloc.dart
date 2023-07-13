@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:grocery_store/data/cart_items.dart';
 import 'package:grocery_store/features/home/models/home_product_data_model.dart';
-import 'package:meta/meta.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';

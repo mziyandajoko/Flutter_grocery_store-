@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_store/features/cart/bloc/cart_bloc.dart';
 import 'package:grocery_store/features/cart/ui/cart_tile_widget.dart';
@@ -24,7 +22,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart Items'),
+        title: const Text('Cart Items'),
       ),
       body: BlocConsumer<CartBloc, CartState>(
         bloc: cartBloc,
@@ -45,7 +43,7 @@ class _CartState extends State<Cart> {
 
             default:
           }
-          return Container();
+          return const Center(child: Text('Your Cart is Empty'));
         },
       ),
     );
