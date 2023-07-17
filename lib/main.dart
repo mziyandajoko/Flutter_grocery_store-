@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_store/features/home/ui/home.dart';
+import 'package:grocery_store/repositories/presentation/routes/generated_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.teal),
-      home: const Home(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator().generateRoute,
     );
   }
 }
