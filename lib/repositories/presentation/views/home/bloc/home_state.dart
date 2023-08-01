@@ -14,3 +14,10 @@ abstract class HomeState extends Equatable {
 class HomeInitial extends HomeState {
   const HomeInitial({required super.tabIndex});
 }
+
+class HomeLoadedSucessState extends HomeState {
+  final List<GroceryData> products;
+
+  const HomeLoadedSucessState(
+      {required super.tabIndex, required this.products});
+}

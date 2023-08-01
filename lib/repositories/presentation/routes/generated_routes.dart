@@ -7,7 +7,7 @@ class RouteGenerator {
   final HomeBloc homeBloc = HomeBloc();
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    settings.arguments;
 
     switch (settings.name) {
       case '/':
