@@ -1,8 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grocery_store/data/grocery_data.dart';
 
 import 'package:grocery_store/repositories/models/product_model_data.dart';
 import 'package:grocery_store/repositories/presentation/views/home/bloc/home_bloc.dart';
@@ -63,11 +62,18 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
   Widget build(BuildContext context) {
+    const state = "initialized";
+
     final successState = state as HomeLoadedSucessState;
 
     return Scaffold(
@@ -79,10 +85,10 @@ class Home extends StatelessWidget {
         builder: (context, state) {
           return Center(
               child: ListView.builder(
-                  itemCount: successState.products.lenght,
+                  itemCount: successState.products.length,
                   itemBuilder: (contex, index) {
                     return ProductTile(
-                      productModelData: successState.products[index],
+                      groceryModel: successState.products[index],
                     );
                   }));
         },
@@ -94,10 +100,11 @@ class Home extends StatelessWidget {
 class ProductTile extends StatelessWidget {
   //asking for  accesssimg the class perimiters
 
-  final ProductModelData productModelData;
+  final GroceryModel groceryModel;
+
   const ProductTile({
     Key? key,
-    required this.productModelData,
+    required this.groceryModel,
   }) : super(key: key);
 
   @override
@@ -116,14 +123,14 @@ class ProductTile extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(productModelData.imageUrl),
+                image: NetworkImage(groceryModel.imageUrl.toString()),
               ),
             ),
           ),
           const SizedBox(
             height: 30,
           ),
-          Text(productModelData.price)
+          Text(groceryModel.price.toString())
         ],
       ),
     );

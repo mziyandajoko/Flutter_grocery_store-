@@ -1,15 +1,31 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-class ProductModelData {
-  final String id;
-  final String name;
-  final String description;
-  final String price;
-  final String imageUrl;
-  ProductModelData({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.price,
-    required this.imageUrl,
-  });
+import 'package:json_annotation/json_annotation.dart';
+
+@JsonSerializable()
+class GroceryModel {
+  int? id;
+  String? name;
+  String? description;
+  double? price;
+  String? imageUrl;
+
+  GroceryModel(
+      {this.id, this.name, this.description, this.price, this.imageUrl});
+
+  GroceryModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    description = json['description'];
+    price = json['price'];
+    imageUrl = json['imageUrl'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['price'] = price;
+    data['imageUrl'] = imageUrl;
+    return data;
+  }
 }
