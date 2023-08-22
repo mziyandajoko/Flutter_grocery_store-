@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grocery_store/data/grocery_data.dart';
+import 'package:grocery_store/data/grocery_data.json';
 
 import 'package:grocery_store/repositories/models/product_model_data.dart';
 import 'package:grocery_store/repositories/presentation/views/home/bloc/home_bloc.dart';

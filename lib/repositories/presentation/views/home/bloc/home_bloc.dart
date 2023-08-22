@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:grocery_store/data/grocery_data.dart';
+import 'package:grocery_store/data/grocery_data.json';
 
 part 'home_event.dart';
 part 'home_state.dart';
