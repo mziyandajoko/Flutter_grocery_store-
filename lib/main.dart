@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_store/repositories/presentation/routes/generated_routes.dart';
+import 'package:grocery_store/features/home/home_page.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -10,11 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.teal),
-      initialRoute: '/',
-      onGenerateRoute: RouteGenerator().generateRoute,
+      home: Home(),
     );
   }
 }
