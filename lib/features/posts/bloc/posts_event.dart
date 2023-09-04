@@ -7,4 +7,4 @@ sealed class PostsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class PostInitialEvent extends PostsEvent {}
+class PostInitialFetchEvent extends PostsEvent {}
