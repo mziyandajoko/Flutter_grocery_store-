@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -34,6 +34,8 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       print(posts);
       //Emiting post state after successul fetch results
       emit(PostsFetchSuccessfullState(posts: posts));
-    } catch (e) {}
+    } catch (e) {
+      log(e.toString());
+    }
   }
 }
