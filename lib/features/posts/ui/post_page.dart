@@ -44,7 +44,7 @@ class _PostPageState extends State<PostPage> {
               );
 
             default:
-              const SizedBox();
+              return const SizedBox();
           }
         },
       ),
