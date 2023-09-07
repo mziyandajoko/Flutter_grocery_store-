@@ -35,16 +35,24 @@ class _PostPageState extends State<PostPage> {
               return ListView.builder(
                 itemCount: successState.posts.length,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text(successState.posts[index].title),
-                    ],
+                  return Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: const BoxDecoration(color: Colors.amberAccent),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(successState.posts[index].title),
+                      ],
+                    ),
                   );
                 },
               );
 
             default:
-              return const SizedBox();
+              return const SizedBox(
+                child: Center(child: Text('Waiting for connection')),
+              );
           }
         },
       ),
