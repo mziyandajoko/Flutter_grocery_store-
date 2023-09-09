@@ -36,8 +36,9 @@ class _PostPageState extends State<PostPage> {
                 itemCount: successState.posts.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: const BoxDecoration(color: Colors.amberAccent),
+                    padding: const EdgeInsets.all(16),
+                    margin: const EdgeInsets.all(16),
+                    color: Colors.blueGrey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
