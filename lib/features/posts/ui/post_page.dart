@@ -30,6 +30,10 @@ class _PostPageState extends State<PostPage> {
         listener: (context, state) {},
         builder: (context, state) {
           switch (state.runtimeType) {
+            case PostsFetchLoadingState:
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             case PostsFetchSuccessfullState:
               final successState = state as PostsFetchSuccessfullState;
               return ListView.builder(

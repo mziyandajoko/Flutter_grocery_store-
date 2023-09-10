@@ -31,7 +31,8 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
             PostDataUiModel.fromJson(result[i] as Map<String, dynamic>);
         posts.add(post);
       }
-      print(posts);
+
+      emit(PostsFetchLoadingState());
       //Emiting post state after successul fetch results
       emit(PostsFetchSuccessfullState(posts: posts));
     } catch (e) {
