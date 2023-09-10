@@ -22,7 +22,6 @@ class PostsRepo {
         posts.add(post);
       }
       return posts;
-      //Emiting post state after successul fetch results
     } catch (e) {
       return [];
     }

@@ -16,8 +16,9 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   FutureOr<void> postInitialFetchEvent(
       PostInitialFetchEvent event, Emitter<PostsState> emit) async {
     emit(PostsFetchLoadingState());
-
+//fetch PostDataUiModel list from Posts Repo
     List<PostDataUiModel> posts = await PostsRepo.fetchPosts();
+    //Emiting post state after successul fetch results
     emit(PostsFetchSuccessfullState(posts: posts));
   }
 }
