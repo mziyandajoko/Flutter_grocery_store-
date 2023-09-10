@@ -21,7 +21,13 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Post Page')),
+        title: const Center(
+          child: Text(
+            'Post Page',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        backgroundColor: Colors.black,
       ),
       body: BlocConsumer<PostsBloc, PostsState>(
         bloc: postsBloc,
@@ -40,17 +46,23 @@ class _PostPageState extends State<PostPage> {
                 itemCount: successState.posts.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: const EdgeInsets.all(16),
-                    margin: const EdgeInsets.all(16),
-                    color: Colors.blueGrey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(successState.posts[index].title),
-                      ],
-                    ),
-                  );
+                      padding: const EdgeInsets.all(16),
+                      margin: const EdgeInsets.all(16),
+                      color: Colors.blueGrey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              text: successState.posts[index].title,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text(successState.posts[index].body),
+                        ],
+                      ));
                 },
               );
 
